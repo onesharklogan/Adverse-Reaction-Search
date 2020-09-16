@@ -1,0 +1,46 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+input[type=text],
+input[type=date] {
+    min-width: 255px;
+}
+
+#js-error {
+    color: red;
+}
+
+
+/* style header so its visually separated from header */
+
+.list-entry-header {
+    font-weight: bold;
+}
+
+
+/* style the data rows so they are visually separated from header */
+
+.list-entry-data {
+    text-indent: 2.5%;
+}
+
+.dropdown-menu {
+    min-width: 265px;
+}
+
+.error {
+    color: red;
+}
+
+
+/* toggle to show/hide elements */
+
+.hidden {
+    display: none;
+}
+
+
+/* Desktop Styles */
+
+@media all and (min-width: 800px) {}
