@@ -6,18 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Adverse Reaction Event - Search Service</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/superhero/bootstrap.min.css" />
     <link rel="stylesheet" href="main.css">
+
+
 </head>
 
 <body>
-    <main>
+    <nav class="navbar">
+        <a id="app-title" class="navbar-brand" href="#">Adverse Reaction Search App
+            </a>
+    </nav>
+    <main class="container">
         <section>
             <h1>Adverse Reactions Recorded by the FDA (Pharma)</h1>
 
             <form id="search-form">
+
                 <p>Note - This is a public demo. Actual drug manufacturers & products will be tailored to your hospital's inventory system</p>
-                <input id="search-manufacturers-button" type="button" value="Search by Manufacturer" />
-                <input id="search-drugs-button" type="button" value="Search by Product" />
+                <div class="form-group row">
+                    <div class="col-xs-2">
+                        <input id="search-manufacturers-button" class="btn btn-primary" type="button" value="Search Manufacturer" />
+                    </div>
+                    <div class="col-xs-2"><input id="search-drugs-button" class="btn btn-primary" type="button" value="Search Product(s)" />
+                    </div>
+                </div>
+
+                </div>
                 </br>
                 </br>
                 <div id="manufacturer-panel">
@@ -25,7 +40,8 @@
                     Choose a Drug Manufacturer:
                 </label>
                     </br>
-                    <select class="dropdown-menu" id="manufacturer-name" name="manufacturer-name" value="Select...">
+
+                    <select class="form-control" id="manufacturer-name" name="manufacturer-name" value="Select...">
                     <option value="Select...">Select...</option>
 
                 <option value="Akorn, Inc.">Akorn, Inc.</option>
@@ -35,7 +51,7 @@
                 <option value="Novartis Pharmaceuticals Corporation">Novartis Pharmaceuticals Corporation</option>
                 <option value="MWI">MWI</option>
                 </select>
-                    <input id="submit-button" type="submit" value="Search" />
+                    <input id="submit-button" class="btn btn-secondary" type="submit" value="Search" />
 
                 </div>
 
@@ -44,7 +60,7 @@
                     Choose or Type a Medicinal Product:
                 </label>
                     </br>
-                    <select class="dropdown-menu" id="drug-menu" name="drug-menu" value="Select...">
+                    <select class="form-control" id="drug-menu" name="drug-menu" value="Select...">
                     <option value="Select...">Select...</option>
 
                     <option value="OROKEN (CEFIXIME, UNSPEC)">OROKEN (CEFIXIME, UNSPEC)</option>
@@ -54,8 +70,10 @@
                     </select>
 
 
-                    <input type="text" id="drug-name" placeholder="Free text entry is also allowed">
-                    <input id="submit-button" type="submit" value="Search" />
+                    <input type="text" id="drug-name" class="form-control" placeholder="Free text entry is also allowed">
+                    </br>
+                    <input id="submit-button" class="btn btn-secondary" type="submit" value="Search" />
+                    </br>
 
                 </div>
 
@@ -66,15 +84,18 @@
 
 
         <section id="results" class="hidden">
-            <p>Adverse Event Records:</p>
-            <p id="js-error"></p>
+            <h3>Adverse Event Records:</h3>
+            <p class="text-danger"></p>
 
             <ol id="results-list"></ol>
         </section>
 
     </main>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
     <script src="app.js"></script>
+
 </body>
 
 </html>

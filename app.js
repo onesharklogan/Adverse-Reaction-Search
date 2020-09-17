@@ -30,7 +30,7 @@ function displayResults(responseJson) {
         for (let d = 0; d < responseJson.results[i].patient.drug.length; d++) {
             $(`#results-list`).append(
                 `<p class="list-entry-data">${responseJson.results[i].patient.drug[d].medicinalproduct}</p>
-              </li>`
+              `
             );
         }
 

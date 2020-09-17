@@ -2,13 +2,17 @@
     font-family: 'Roboto', sans-serif;
 }
 
-input[type=text],
-input[type=date] {
-    min-width: 255px;
+
+/*bootstrap overrides*/
+
+.col-xs-2 {
+    padding-left: 3px;
+    padding-right: 3px;
 }
 
-#js-error {
-    color: red;
+.form-control {
+    padding-top: 3px;
+    padding-bottom: 3px;
 }
 
 
@@ -16,17 +20,6 @@ input[type=date] {
 
 .list-entry-header {
     font-weight: bold;
-}
-
-
-/* style the data rows so they are visually separated from header */
-
-.list-entry-data {
-    text-indent: 2.5%;
-}
-
-.dropdown-menu {
-    min-width: 265px;
 }
 
 .error {
