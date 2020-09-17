@@ -3,7 +3,6 @@
 //this is the base URL for the API - add parameters to this without editing this original const
 const searchURL = 'https://api.fda.gov/drug/event.json';
 
-//const apiKey = 'NqRn0Nrc09n3vgWsb3jxKI3rRFEtIn6EZKP81ZRG';
 function addSearchParam(url, paramName, paramValue) {
     //replace spaces and characters w proper %20 and encoding
     paramValue = encodeURIComponent(paramValue);
@@ -50,6 +49,7 @@ function displayResults(responseJson) {
     $('#results').removeClass('hidden');
 }
 
+//Clearing the dropdown menus to their default state is useful to avoid poor application states
 function clearFilters() {
     $('#manufacturer-name').val("Select...");
     $('#drug-name').val("");
@@ -76,7 +76,7 @@ function getResults(manufacturerName, drugName, maxResults) {
     fetch(url)
         .then(response => {
             if (response.ok) {
-                console.log("response ok!");
+                //console.log("response ok!");
                 return response.json();
             }
             throw new Error(response.statusText);
