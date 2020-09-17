@@ -1,5 +1,3 @@
-About Adverse Reaction Search App
---------------
 
 ![93481542-4994fa00-f8c4-11ea-8c74-a7f249d1c8da](https://user-images.githubusercontent.com/29128980/93482237-199a2680-f8c5-11ea-85d6-be90f094cf0e.png)
 
