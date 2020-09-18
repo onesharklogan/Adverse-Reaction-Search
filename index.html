@@ -12,7 +12,7 @@
 <body>
     <main>
         <section>
-            <div class="container"> <img src="medical-eps.png">
+            <div class="container"> <img src="medical-eps.png" alt="fda logo">
                 <div class="title-text">Adverse Reaction Event - Search Service</div>
             </div>
             <form id="search-form">
@@ -23,14 +23,14 @@
                     <input id="search-drugs-button" type="button" class="button" value="Search Product(s)" />
                     <input id="search-recalls-button" type="button" class="button" value="Latest Drug Recalls" />
                 </div>
-                </br>
+                <br/>
                 <div id="manufacturer-panel">
                     <label for="manufacturer-name">
                     Choose a Drug Manufacturer:
                 </label>
-                    </br>
+                    <br/>
 
-                    <select class="form-control" id="manufacturer-name" name="manufacturer-name" value="Select...">
+                    <select class="form-control" id="manufacturer-name" name="manufacturer-name">
                     <option value="Select...">Select...</option>
 
                 <option value="Akorn, Inc.">Akorn, Inc.</option>
@@ -40,15 +40,15 @@
                 <option value="Novartis Pharmaceuticals Corporation">Novartis Pharmaceuticals Corporation</option>
                 <option value="MWI">MWI</option>
                 </select>
-                    <input id="submit-button" class="button-secondary" type="submit" value="Search" />
+                    <input class="button-secondary" type="submit" value="Search" />
                 </div>
 
                 <div id="drug-panel">
                     <label for="drug-menu">
                     Choose or Type a Medicinal Product:
                 </label>
-                    </br>
-                    <select id="drug-menu" name="drug-menu" value="Select...">
+                    <br/>
+                    <select id="drug-menu" name="drug-menu">
                     <option value="Select...">Select...</option>
 
                     <option value="OROKEN (CEFIXIME, UNSPEC)">OROKEN (CEFIXIME, UNSPEC)</option>
@@ -57,8 +57,8 @@
                     <option value="LYRICA">LYRICA</option>
                     </select>
                     <input type="text" id="drug-name" placeholder="Free text entry is also allowed">
-                    <input id="submit-button" type="submit" class="button-secondary" value="Search" />
-                    </br>
+                    <input type="submit" class="button-secondary" value="Search" />
+                    <br/>
 
                 </div>
 

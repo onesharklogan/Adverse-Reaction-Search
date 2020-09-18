@@ -71,7 +71,7 @@ function displayRecallResults(responseJson) {
             <p class="list-entry-header">Reason For Recall:</p>
             <p class="list-entry-data"> ${responseJson.results[i].reason_for_recall}</p>
             <p class="list-entry-header">Report Date:</p>
-            <p class="list-entry-data"> ${friendlyDate}</p></br>`
+            <p class="list-entry-data"> ${friendlyDate}</p><br/>`
         );
         $('#recalls-panel').removeClass('hidden');
     }

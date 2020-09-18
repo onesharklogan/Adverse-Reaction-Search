@@ -10,7 +10,6 @@ img {
 
 .container {
     display: flex;
-    background-color: rgb(240, 240, 240);
     /* or inline-flex */
 }
 
