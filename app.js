@@ -2,6 +2,8 @@
 
 //this is the base URL for the API - add parameters to this without editing this original const
 const searchURL = 'https://api.fda.gov/drug/event.json';
+//retrieve latest 20 recalled med devices
+const searchRecallURL = 'https://api.fda.gov/device/enforcement.json?sort=report_date:desc&limit=20';
 
 function addSearchParam(url, paramName, paramValue) {
     //replace spaces and characters w proper %20 and encoding
@@ -49,6 +51,40 @@ function displayResults(responseJson) {
     $('#results').removeClass('hidden');
 }
 
+function displayRecallResults(responseJson) {
+    //clear the results so we can repopulate substance_name
+    $(`#recalls-panel`).empty();
+    $(`#recalls-panel`).append(`<b>View Recent Device Recall Events Below...</b>`);
+
+
+    for (let i = 0; i < responseJson.results.length; i++) {
+        //friendly date
+        let dateraw = "20200207";
+        let year = dateraw.substring(0, 4);
+        let month = dateraw.substring(4, 6);
+        let day = dateraw.substring(6, 8);
+        let friendlyDate = month + "/" + day + "/" + year;
+
+        $(`#recalls-panel`).append(
+            ` <p class="list-entry-header">Product Description:</p>
+            <p class="list-entry-data"> ${responseJson.results[i].product_description}</p>
+            <p class="list-entry-header">Reason For Recall:</p>
+            <p class="list-entry-data"> ${responseJson.results[i].reason_for_recall}</p>
+            <p class="list-entry-header">Report Date:</p>
+            <p class="list-entry-data"> ${friendlyDate}</p></br>`
+        );
+        $('#recalls-panel').removeClass('hidden');
+    }
+}
+
+function formatFriendlyDate(dateraw) {
+    console.log("formatFriendlyDate ran");
+    // let year = dateraw.substring(0, 4);
+    // let month = dateraw.substring(4, 6);
+    // let day = dateraw.substring(6, 8);
+    // return day + "/" + month + "/" + year;
+}
+
 //Clearing the dropdown menus to their default state is useful to avoid poor application states
 function clearFilters() {
     $('#manufacturer-name').val("Select...");
@@ -83,8 +119,39 @@ function getResults(manufacturerName, drugName, maxResults) {
         })
         .then(responseJson => displayResults(responseJson))
         .catch(err => {
-            $(`#results-list`).empty();
-            $('#js-error').text(`Error occurred during lookup: ${err.message}`);
+            $(`#
+                results - list `).empty();
+            $('#js-error').text(`
+                Error occurred during lookup: $ { err.message }
+                `);
+        });
+}
+
+
+function getRecalls() {
+    //clear error warning text
+    $('#js-error').empty();
+    //console.log(manufacturerName + " " + drugName);
+    let url = searchRecallURL;
+
+
+    //add another parameter if needed
+    // console.log(url);
+    fetch(url)
+        .then(response => {
+            if (response.ok) {
+                console.log("response ok!");
+                return response.json();
+            }
+            throw new Error(response.statusText);
+        })
+        .then(responseJson => displayRecallResults(responseJson))
+        .catch(err => {
+            $(`#
+                results - list `).empty();
+            $('#js-error').text(`
+                Error occurred during lookup: $ { err.message }
+                `);
         });
 }
 
@@ -96,6 +163,7 @@ function isEmpty(str) {
 function watchForm() {
     //Default state upon load will be manufacturer Search
     $("#drug-panel").hide();
+    $("#recalls-panel").hide();
 
     $('#drug-menu').on('change', function(event) {
         let selected = $('#drug-menu').val(); //find('option:selected').value());
@@ -105,13 +173,24 @@ function watchForm() {
     $("#search-manufacturers-button").click(function() {
         $("#drug-panel").hide();
         $("#manufacturer-panel").show();
+        $("#recalls-panel").hide();
+
         clearFilters();
     });
 
     $("#search-drugs-button").click(function() {
         $("#drug-panel").show();
         $("#manufacturer-panel").hide();
+        $("#recalls-panel").hide();
         clearFilters();
+    });
+
+    $("#search-recalls-button").click(function() {
+        $("#drug-panel").hide();
+        $("#manufacturer-panel").hide();
+        $("#recalls-panel").show();
+        clearFilters();
+        getRecalls();
     });
 
     $('form').submit(event => {
@@ -122,8 +201,11 @@ function watchForm() {
         const maxResults = 10;
 
         if (isEmpty(manufacturerName) & isEmpty(drugName)) {
-            $(`#results-list`).empty();
-            $('#js-error').text(`Please enter search criteria and try again!`);
+            $(`#
+                results - list `).empty();
+            $('#js-error').text(`
+                Please enter search criteria and
+                try again!`);
             $('#js-error').removeClass("hidden");
         } else {
             getResults(manufacturerName, drugName, 10);

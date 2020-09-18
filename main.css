@@ -1,18 +1,57 @@
 * {
-    font-family: 'Roboto', sans-serif;
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: gotham-medium;
+    color: #002157;
 }
 
-
-/*bootstrap overrides*/
-
-.col-xs-2 {
-    padding-left: 3px;
-    padding-right: 3px;
+img {
+    height: 80px;
 }
 
-.form-control {
-    padding-top: 3px;
-    padding-bottom: 3px;
+.container {
+    display: flex;
+    background-color: rgb(240, 240, 240);
+    /* or inline-flex */
+}
+
+input {
+    margin: 5px;
+}
+
+input[type="text" i] {
+    height: 22px;
+    width: 210px;
+}
+
+select {
+    height: 26px;
+    width: 210px;
+}
+
+.button {
+    background-color: #002157;
+    border: none;
+    color: white;
+    padding: 9px 27px;
+    border-radius: 6px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button-secondary {
+    padding: 6px 20px;
+    border-radius: 6px;
+    font-size: 19px;
+    Color: white !important;
+    text-transform: uppercase;
+    border: 1px solid #a79344;
+    background: #a79344;
+    font-size: 14px;
+    color: #fff;
 }
 
 
@@ -33,23 +72,22 @@
     display: none;
 }
 
+.title-text {
+    padding-top: 23px;
+    padding-left: 20px;
+    font-size: 28px;
+}
+
 
 /* Mobile Styles */
 
 h1 {
     font-size: 23px;
+    color: #002157;
 }
 
 h2 {
     font-size: 17px;
-}
-
-h3 {
-    font-size: 17px;
-}
-
-p {
-    font-size: 12px;
 }
 
 
@@ -61,11 +99,5 @@ p {
     }
     h2 {
         font-size: 30px;
-    }
-    h3 {
-        font-size: 25px;
-    }
-    p {
-        font-size: 16px;
     }
 }
